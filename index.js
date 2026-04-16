@@ -1,20 +1,14 @@
-function combineUsers(...arrays) {
-  // Merge all arrays into one
+require('datejs');
+
+const combineUsers = (...arrays) => {
   const mergedUsers = arrays.flat();
 
-  // Get today's date
-  const mergeDate = new Date();
+  const mergeDate = Date.today().toString("M/d/yyyy");
 
-  // Return the required object
   return {
     users: mergedUsers,
     merge_date: mergeDate
   };
-}
-
-// Export the function (important for tests)
-module.exports = combineUsers;
-
-module.exports = {
-  ...(typeof combineUsers !== 'undefined' && { combineUsers })
 };
+
+module.exports = { combineUsers };
